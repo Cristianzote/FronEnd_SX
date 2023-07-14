@@ -16,7 +16,8 @@ import log from "./routes/login.routes.js";
 dotenv.config();
 
 const app = express();
-const __filename = fileURLToPath(import.meta.url);
+const __filename = fileURLToPath(
+    import.meta.url);
 const __dirname = path.dirname(__filename);
 
 //Configuración
@@ -45,13 +46,13 @@ app.use("/administrador", administrador);
 app.use("/vendedor", vendedor);
 
 app.use((req, res, next) => {
-  if (!req.user)
-    res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
-  next();
+    if (!req.user)
+        res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+    next();
 });
 
 app.get('/', (req, res) => {
-  res.send({ message: 'Bienvenido a mi app' });
+    res.send({ message: 'Bienvenido a mi app' });
 })
 
 export default app;
